@@ -1,0 +1,69 @@
+body {
+  background-color: #000 !important;
+  color: #FFF !important;
+}
+
+.top-bar {
+  background: #e8f706;
+  background: linear-gradient(11deg, #e8f706 0%, #0bdf90 33%, #007fff 100%);
+}
+
+.top-bar a {
+  color: #000;
+  text-decoration: none;
+  padding-left: 3em;
+}
+
+footer {
+  background: #e8f706;
+  background: linear-gradient(11deg, #e8f706 0%, #0bdf90 33%, #007fff 100%);
+  text-align: center;
+}
+
+.page-title {
+  color: #000;
+  font-size: 24px;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  margin: 50px auto 10px;
+}
+.link-btn {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #F7AD2E;
+  text-align: center;
+  text-decoration: none;
+  width: 180px;
+  height: 70px;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 5px solid #F7AD2E;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition-duration: 1s;
+}
+
+.link-btn i {
+  margin-right: 0.4em;
+}
+
+.link-btn:hover {
+  color: #FFF;
+  background-color: #F7AD2E;
+  border: double #FFF 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+table {
+  background-color: #FFF;
+}
+
+.contact-body {
+  height: 100%;
+}

@@ -1,0 +1,21 @@
+body {
+    background-color: #000 !important;
+    color: #FFF !important;
+}
+
+.top-bar {
+    background: rgb(232,247,6);
+    background: linear-gradient(11deg, rgba(232,247,6,1) 0%, rgba(11,223,144,1) 33%, rgba(0,127,255,1) 100%);
+    a {
+        color: #000;
+        text-decoration: none;
+        padding-left: 3em;
+    }
+}
+
+
+footer {
+    background: rgb(232,247,6);
+    background: linear-gradient(11deg, rgba(232,247,6,1) 0%, rgba(11,223,144,1) 33%, rgba(0,127,255,1) 100%);
+    text-align: center;
+}
