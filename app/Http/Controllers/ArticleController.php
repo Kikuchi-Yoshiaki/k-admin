@@ -56,6 +56,9 @@ class ArticleController extends Controller
             $articles->sub_image_4 = null;
         }
         
+        $path = $request->file('main_image')->store('public/image');
+        $articles->main_image = basename($path);
+        
         unset($form['_token']);
         unset($form['main_image']);
         unset($form['sub_image_1']);

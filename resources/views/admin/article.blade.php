@@ -45,7 +45,8 @@
                 <th rowspan="3">No.</th>
                 <th>User Name</th>
                 <th>Category</th>
-                <th colspan="3">Title</th>
+                <th colspan="2">Title</th>
+                <th>Image_Text</th>
                 <th>Link URL</th>
                 <th>link Text</th>
             </tr>
@@ -66,7 +67,8 @@
                 <th rowspan="3">{{ $article->id }}</th>
                 <th>{{ $article->user_id }}</th>
                 <th>{{ $article->category }}</th>
-                <th colspan="3">{{ $article->title }}</th>
+                <th colspan="2">{{ $article->title }}</th>
+                <th>{{ $article->image_text }}</th>
                 <th>{{ $article->link_url }}</th>
                 <th>{{ $article->link_text }}</th>
             </tr>
@@ -85,7 +87,7 @@
     </table>
     
     <section class="mb-5">
-        <a href="{{ url('/test/profile') }}" class="link-btn">
+        <a href="{{ url('/test/article') }}" class="link-btn">
             <span>Test</span>
         </a>
     </section>

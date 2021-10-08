@@ -54,7 +54,10 @@
             </tr>
             <tr>
                 <th></th>
-                <td><input type="submit" value="送信"></td>
+                <td>
+                    <input type="reset" value="書き直し">
+                    <input type="submit" value="送信">
+                </td>
                 {{ csrf_field() }}
             </tr>
         </table>

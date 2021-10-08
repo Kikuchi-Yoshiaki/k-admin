@@ -48,23 +48,42 @@
             </tr>
             <tr>
                 <th>メイン画像：</th>
-                <td><input type="file" class="form-control-file" name="main_image"></td>
+                <td>
+                    <input type="file" class="form-control-file" name="main_image">
+                    <input type="button" class="check-box mt-2" onclick="this.form.elements['main_image'].value=''" value="画像を取り消し">
+                </td>
+            </tr>
+            <tr>
+                <th>画像説明文：</th>
+                <td><input type="text" name="image_text"></td>
             </tr>
             <tr>
                 <th>サブ画像１：</th>
-                <td><input type="file" class="form-control-file" name="sub_image_1"></td>
+                <td>
+                    <input type="file" class="form-control-file" name="sub_image_1">
+                    <input type="button" class="check-box mt-2" onclick="this.form.elements['sub_image_1'].value=''" value="画像を取り消し">
+                </td>
             </tr>
             <tr>
                 <th>サブ画像２：</th>
-                <td><input type="file" class="form-control-file" name="sub_image_2"></td>
+                <td>
+                    <input type="file" class="form-control-file" name="sub_image_2">
+                    <input type="button" class="check-box mt-2" onclick="this.form.elements['sub_image_2'].value=''" value="画像を取り消し">
+                </td>
             </tr>
             <tr>
                 <th>サブ画像３：</th>
-                <td><input type="file" class="form-control-file" name="sub_image_3"></td>
+                <td>
+                    <input type="file" class="form-control-file" name="sub_image_3">
+                    <input type="button" class="check-box mt-2" onclick="this.form.elements['sub_image_3'].value=''" value="画像を取り消し">
+                </td>
             </tr>
             <tr>
                 <th>サブ画像４：</th>
-                <td><input type="file" class="form-control-file" name="sub_image_4"></td>
+                <td>
+                    <input type="file" class="form-control-file" name="sub_image_4">
+                    <input type="button" class="check-box mt-2" onclick="this.form.elements['sub_image_4'].value=''" value="画像を取り消し">
+                </td>
             </tr>
             <tr>
                 <th>Link_URL：</th>
@@ -75,7 +94,7 @@
                 <td><input type="text" name="link_text"></td>
             </tr>
             <tr>
-                <th><label class="form-label mr-3 mt-2" id="article-category">カテゴリー</label></th>
+                <th><label class="form-label mr-3 mt-2">カテゴリー</label></th>
                 <td><select class="form-control col-5" name="category">
                     <option>気仙沼の遊ぶ</option>
                     <option>気仙沼の食べる</option>

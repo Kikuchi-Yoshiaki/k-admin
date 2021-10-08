@@ -44,7 +44,10 @@
             </tr>
             <tr>
                 <th>風景画像：</th>
-                <td><input type="file" class="form-control-file" name="view_image"></td>
+                <td>
+                    <input type="file" class="form-control-file" name="view_image">
+                    <input type="button" class="check-box mt-2" onclick="this.form.elements['view_image'].value=''" value="画像を取り消し">
+                </td>
             </tr>
             
             <tr>

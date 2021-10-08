@@ -10,6 +10,7 @@ class Contact extends Model
     
     public static $rules = array(
         'name' => 'required',
+        'email' => 'required',
         'title' => 'required',
         'body' => 'required',
         );
