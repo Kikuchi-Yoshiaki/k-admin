@@ -18,7 +18,6 @@ Route::get('/', function () {
 
 Route::get('/', 'AdminController@add');
 Route::get('/master', 'AdminController@master');
-Route::get('/article', 'AdminController@article');
 Route::get('/inquiry', 'AdminController@inquiry');
 
 
@@ -39,6 +38,11 @@ Route::get('/test/view', 'ViewController@test');
 Route::get('/view', 'ViewController@index');
 Route::post('/test/view', 'ViewController@create');
 
+
+Route::get('/article', 'ArticleController@add');
+Route::get('/test/article', 'ArticleController@test');
+Route::get('/article', 'ArticleController@index');
+Route::post('/test/article', 'ArticleController@create');
 
 
 

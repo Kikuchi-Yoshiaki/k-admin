@@ -62,7 +62,6 @@
             </tr>
             @endforeach
         </tbody>
-
     </table>
 
     <section class="mb-5">

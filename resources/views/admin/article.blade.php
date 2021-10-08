@@ -16,9 +16,9 @@
 
     <div class="d-flex justify-content-between">
         <section>
-            <a href="{{ url('/profile') }}" class="link-btn">
-                <i class="fas fa-users"></i>
-                <span>Profile List</span>
+            <a href="{{ url('/article') }}" class="link-btn">
+                <i class="far fa-newspaper"></i>
+                <span>Article List</span>
             </a>
         </section>
 
@@ -37,33 +37,57 @@
         </section>
     </div>
 
+
     <!-- データテーブル -->
     <table class="table table-bordered table-hover mt-5">
-        <thead>
+        <thead class="text-center bg-primary">
             <tr>
-                <th>#</th>
-                <th>User_id</th>
-                <th>Name</th>
-                <th>Title</th>
-                <th>Body</th>
+                <th rowspan="3">No.</th>
+                <th>User Name</th>
                 <th>Category</th>
+                <th colspan="3">Title</th>
+                <th>Link URL</th>
+                <th>link Text</th>
+            </tr>
+            <tr><th colspan="7">Body</th></tr>
+            <tr>
+                <th>Main Image</th>
+                <th>Sub Image_1</th>
+                <th>Sub Image_2</th>
+                <th>Sub Image_3</th>
+                <th>Sub Image_4</th>
                 <th>Date</th>
                 <th>Delete</th>
             </tr>
         </thead>
         <tbody>
+            @foreach ($articles as $article)
             <tr>
-                <th scope="row">1</th>
-                <td>1</td>
-                <td>Yoshiaki</td>
-                <td>title name</td>
-                <td>texttexttexttexttexttexttexttexttexttexttexttext</td>
-                <td>food</td>
-                <td>2021.10.4(Mon)</td>
-                <td><a href="#">削除</a></td>
+                <th rowspan="3">{{ $article->id }}</th>
+                <th>{{ $article->user_id }}</th>
+                <th>{{ $article->category }}</th>
+                <th colspan="3">{{ $article->title }}</th>
+                <th>{{ $article->link_url }}</th>
+                <th>{{ $article->link_text }}</th>
             </tr>
+            <tr><th colspan="7">{{ $article->body }}</th></tr>
+            <tr>
+                <th>{{ $article->main_image }}</th>
+                <th>{{ $article->sub_image_1 }}</th>
+                <th>{{ $article->sub_image_2 }}</th>
+                <th>{{ $article->sub_image_3 }}</th>
+                <th>{{ $article->sub_image_4 }}</th>
+                <td>{{ $article->created_at->format('Y/m/d/ H:i') }}</td>
+                <td class="text-center"><a href="">削除</a></td>
+            </tr>
+            @endforeach
         </tbody>
-
     </table>
+    
+    <section class="mb-5">
+        <a href="{{ url('/test/profile') }}" class="link-btn">
+            <span>Test</span>
+        </a>
+    </section>
 
 @endsection

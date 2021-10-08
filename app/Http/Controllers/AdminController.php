@@ -16,17 +16,6 @@ class AdminController extends Controller
         return view('admin.master');
     }
 
-    public function profile()
-    {
-        return view('admin.profile');
-    }
-
-    public function article()
-    {
-        return view('admin.article');
-    }
-
-
 
     public function inquiry()
     {
