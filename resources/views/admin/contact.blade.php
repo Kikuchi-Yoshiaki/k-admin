@@ -61,8 +61,15 @@
                     <td>{{ $contact->title }}</td>
                     <td>{{ $contact->body }}</td>
                     <td>{{ $contact->created_at->format('Y/m/d H:i') }}</td>
-                    <td class="text-center"><a href="{{ url('/inquiry') }}">詳細</a></td>
-                    <td class="text-center"><a href="">削除</a></td>
+                    <td class="text-center">
+                        <a href=""></a>
+                    </td>
+                    <td class="text-center">
+                        <form action="{{ action('ContactController@delete', ['id' => $contact->id]) }}" method="POST">
+                            {{ csrf_field() }}
+                            <input type="submit" value="削除">
+                        </form>
+                    </td>
                 </tr>    
                 @endforeach
 

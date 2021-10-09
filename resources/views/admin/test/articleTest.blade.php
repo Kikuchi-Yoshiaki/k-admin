@@ -50,7 +50,7 @@
                 <th>メイン画像：</th>
                 <td>
                     <input type="file" class="form-control-file" name="main_image">
-                    <input type="button" class="check-box mt-2" onclick="this.form.elements['main_image'].value=''" value="画像を取り消し">
+                    <input type="button" class="mt-2" onclick="this.form.elements['main_image'].value=''" value="画像を取り消し">
                 </td>
             </tr>
             <tr>
@@ -61,28 +61,28 @@
                 <th>サブ画像１：</th>
                 <td>
                     <input type="file" class="form-control-file" name="sub_image_1">
-                    <input type="button" class="check-box mt-2" onclick="this.form.elements['sub_image_1'].value=''" value="画像を取り消し">
+                    <input type="button" class="mt-2" onclick="this.form.elements['sub_image_1'].value=''" value="画像を取り消し">
                 </td>
             </tr>
             <tr>
                 <th>サブ画像２：</th>
                 <td>
                     <input type="file" class="form-control-file" name="sub_image_2">
-                    <input type="button" class="check-box mt-2" onclick="this.form.elements['sub_image_2'].value=''" value="画像を取り消し">
+                    <input type="button" class="mt-2" onclick="this.form.elements['sub_image_2'].value=''" value="画像を取り消し">
                 </td>
             </tr>
             <tr>
                 <th>サブ画像３：</th>
                 <td>
                     <input type="file" class="form-control-file" name="sub_image_3">
-                    <input type="button" class="check-box mt-2" onclick="this.form.elements['sub_image_3'].value=''" value="画像を取り消し">
+                    <input type="button" class="mt-2" onclick="this.form.elements['sub_image_3'].value=''" value="画像を取り消し">
                 </td>
             </tr>
             <tr>
                 <th>サブ画像４：</th>
                 <td>
                     <input type="file" class="form-control-file" name="sub_image_4">
-                    <input type="button" class="check-box mt-2" onclick="this.form.elements['sub_image_4'].value=''" value="画像を取り消し">
+                    <input type="button" class="mt-2" onclick="this.form.elements['sub_image_4'].value=''" value="画像を取り消し">
                 </td>
             </tr>
             <tr>

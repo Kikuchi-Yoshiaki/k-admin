@@ -60,7 +60,12 @@
                 <td>{{ $user->password }}</td>
                 <td>{{ $user->profile_image }}</td>
                 <td>{{ $user->created_at->format('Y/m/d/ H:i') }}</td>
-                <td class="text-center"><a href="">削除</a></td>
+                <td class="text-center">
+                    <form action="{{ action('UserController@delete', ['id' => $user->id]) }}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="submit" value="削除">
+                    </form>
+                </td>
             </tr>
             @endforeach
         </tbody>

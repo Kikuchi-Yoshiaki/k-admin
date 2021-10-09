@@ -13,6 +13,7 @@ class ContactController extends Controller
         return view('admin.contact');
     }
 
+
     public function test()
     {
         return view('admin.test.contactTest');
@@ -24,6 +25,8 @@ class ContactController extends Controller
         $contacts = Contact::all();
         return view('admin.contact', ['contacts' => $contacts]);
     }
+
+    
 
     public function create(Request $request)
     {
@@ -41,8 +44,16 @@ class ContactController extends Controller
     }
 
 
+    public function delete(Request $request)
+    {
+        $delete = Contact::find($request->id);
+        $delete->delete();
+        return redirect('/contact');
+    }
     
     
+
+   
     
     
     

@@ -52,7 +52,7 @@
                 <th>プロフィール画像：</th>
                 <td>
                     <input type="file" class="form-control-file" name="profile_image">
-                    <input type="button" class="check-box mt-1" onclick="this.form.elements['profile_image'].value=''" value="画像を取り消し">
+                    <input type="button" class="mt-1" onclick="this.form.elements['profile_image'].value=''" value="画像を取り消し">
                 </td>
             </tr>
             <tr>

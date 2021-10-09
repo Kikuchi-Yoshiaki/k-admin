@@ -25,24 +25,31 @@ Route::get('/contact', 'ContactController@add');
 Route::get('/test/contact', 'ContactController@test');
 Route::get('/contact', 'ContactController@index');
 Route::post('/test/content', 'ContactController@create');
+Route::post('contact', 'ContactController@delete');
+
+
 
 
 Route::get('/profile', 'UserController@add');
 Route::get('/test/profile', 'UserController@test');
 Route::get('/profile', 'UserController@index');
 Route::post('/test/profile', 'UserController@create');
+Route::post('/profile', 'UserController@delete');
 
 
 Route::get('/view', 'ViewController@add');
 Route::get('/test/view', 'ViewController@test');
 Route::get('/view', 'ViewController@index');
 Route::post('/test/view', 'ViewController@create');
+Route::post('/view', 'ViewController@delete');
 
 
 Route::get('/article', 'ArticleController@add');
 Route::get('/test/article', 'ArticleController@test');
 Route::get('/article', 'ArticleController@index');
 Route::post('/test/article', 'ArticleController@create');
+Route::post('/article', 'ArticleController@delete');
+
 
 
 

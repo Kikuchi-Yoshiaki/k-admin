@@ -13,10 +13,12 @@ class ViewController extends Controller
         return view('admin.view');
     }
     
+    
     public function test()
     {
         return view('admin.test.viewTest');
     }
+    
     
     public function index(Request $request)
     {
@@ -32,7 +34,7 @@ class ViewController extends Controller
         $views = new View;
         $form = $request->all();
         
-        $path = $request->file('view_image')->store('public/image');
+        $path = $request->file('view_image')->store('public/view');
         $views->view_image = basename($path);
         
         unset($form['_token']);
@@ -42,6 +44,17 @@ class ViewController extends Controller
         $views->save();
         
         return redirect('view');
-        
     }
+    
+    
+    public function delete(Request $request)
+    {
+        $delete = View::find($request->id);
+        $delete->delete();
+        
+        return redirect('/view');
+    }
+    
+    
+    
 }

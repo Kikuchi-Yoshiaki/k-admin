@@ -13,16 +13,19 @@ class ArticleController extends Controller
         return view('admin.article');
     }
     
+    
     public function test()
     {
         return view('admin.test.articleTest');
     }
+    
     
     public function index(Request $request)
     {
         $articles = Article::all();
         return view('admin.article', ['articles' => $articles]);
     }
+    
     
     public function create(Request $request)
     {
@@ -71,4 +74,15 @@ class ArticleController extends Controller
         
         return redirect('article');
     }
+    
+    
+    public function delete(Request $request)
+    {
+        $delete = Article::find($request->id);
+        $delete->delete();
+        
+        return redirect('/article');
+    }
+    
+    
 }

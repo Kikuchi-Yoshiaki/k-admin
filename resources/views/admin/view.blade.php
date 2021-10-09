@@ -58,7 +58,12 @@
                 <td>{{ $view->title }}</td>
                 <td>{{ $view->view_image }}</td>
                 <td>{{ $view->created_at->format('Y/m/d H:i') }}</td>
-                <td class="text-center"><a href="">削除</a></td>
+                <td class="text-center">
+                    <form action="{{ action('ViewController@delete', ['id' => $view->id]) }}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="submit" value="削除">
+                    </form>
+                </td>
             </tr>
             @endforeach
         </tbody>

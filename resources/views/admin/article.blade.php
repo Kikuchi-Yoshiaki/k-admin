@@ -80,7 +80,12 @@
                 <th>{{ $article->sub_image_3 }}</th>
                 <th>{{ $article->sub_image_4 }}</th>
                 <td>{{ $article->created_at->format('Y/m/d/ H:i') }}</td>
-                <td class="text-center"><a href="">削除</a></td>
+                <td class="text-center"><a href="">
+                    <form action="{{ action('ArticleController@delete', ['id' => $article->id]) }}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="submit" value="削除">
+                    </form> 
+                </td>
             </tr>
             @endforeach
         </tbody>
