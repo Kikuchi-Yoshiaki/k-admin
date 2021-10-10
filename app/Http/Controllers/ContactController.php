@@ -48,11 +48,19 @@ class ContactController extends Controller
     {
         $delete = Contact::find($request->id);
         $delete->delete();
+        
         return redirect('/contact');
     }
     
     
-
+    
+    public function show(Request $request)
+    {
+        $show = Contact::find($request->id);
+        
+        return view('admin.inquiry', ['show' => $show]);
+    }
+    
    
     
     

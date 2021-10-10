@@ -24,31 +24,32 @@
     </div>
 
     <!-- 受信欄 -->
+
     <div class="row mt-5">
         <div class="form-group col-5 offset-1">
             <label for="contact-name">Contact Name</label>
-            <div class="form-control" id="contact-name">氏名</div>
+            <div class="form-control" id="contact-name">{{ $show->name }}</div>
         </div>
 
         <div class="form-group col-5">
             <label for="contact-mail">Mail</label>
-            <div class="form-control" id="contact-mail">メール</div>
+            <div class="form-control" id="contact-mail">{{ $show->email }}</div>
         </div>
 
-        <div class="form-group col-8 offset-1">
+        <div class="form-group col-7 offset-1">
             <label for="contact-title">Title</label>
-            <div class="form-control" id="contact-title">タイトル</div>
+            <div class="form-control" id="contact-title">{{ $show->title }}</div>
         </div>
 
-        <div class="form-group col-2">
+        <div class="form-group col-3">
             <label for="date">Date</label>
-            <div class="form-control" id="date">{{format('Y年m月d日 H時i分') }}</div>
+            <div class="form-control" id="date">{{ $show->created_at->format('Y年m月d日 H時i分') }}</div>
         </div>
 
-        <div class="form-group col-10 offset-1">
+        <div class="form-group col-10 offset-1 mb-5">
             <label for="date">Body</label>
-            <div class="form-control contact-body py-4" id="date">{{ $preview->body }}</div>
+            <div class="form-control contact-body py-4" id="date">{{ $show->body }}</div>
         </div>
-
     </div>
+    
 @endsection

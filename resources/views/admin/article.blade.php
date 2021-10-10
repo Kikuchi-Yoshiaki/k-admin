@@ -39,46 +39,62 @@
 
 
     <!-- データテーブル -->
-    <table class="table table-bordered table-hover mt-5">
+    <table class="table table-bordered table-hover mt-5 col-12">
         <thead class="text-center bg-primary">
             <tr>
-                <th rowspan="3">No.</th>
-                <th>User Name</th>
-                <th>Category</th>
-                <th colspan="2">Title</th>
-                <th>Image_Text</th>
-                <th>Link URL</th>
-                <th>link Text</th>
+                <th rowspan="2" style="width: 3%">No.</th>
+                <th style="width: 10%">User Name</th>
+                <th style="width: 8%">Category</th>
+                <th style="width: 15%">Title</th>
+                <th style="width: 14%">Image_Text</th>
+                <th style="width: 10%">Link URL</th>
+                <th style="width: 10%">link Text</th>
+                <th style="width: 3%">Main Img</th>
+                <th style="width: 3%">Sub1</th>
+                <th style="width: 3%">Sub2</th>
+                <th style="width: 3%">Sub3</th>
+                <th style="width: 3%">Sub4</th>
+                <th style="width: 10%">Date</th>
+                <th style="width: 5%">Delete</th>
             </tr>
-            <tr><th colspan="7">Body</th></tr>
             <tr>
-                <th>Main Image</th>
-                <th>Sub Image_1</th>
-                <th>Sub Image_2</th>
-                <th>Sub Image_3</th>
-                <th>Sub Image_4</th>
-                <th>Date</th>
-                <th>Delete</th>
+                <th colspan="13">Body</th>
             </tr>
         </thead>
+        
         <tbody>
             @foreach ($articles as $article)
             <tr>
-                <th rowspan="3">{{ $article->id }}</th>
-                <th>{{ $article->user_id }}</th>
-                <th>{{ $article->category }}</th>
-                <th colspan="2">{{ $article->title }}</th>
-                <th>{{ $article->image_text }}</th>
-                <th>{{ $article->link_url }}</th>
-                <th>{{ $article->link_text }}</th>
-            </tr>
-            <tr><th colspan="7">{{ $article->body }}</th></tr>
-            <tr>
-                <th>{{ $article->main_image }}</th>
-                <th>{{ $article->sub_image_1 }}</th>
-                <th>{{ $article->sub_image_2 }}</th>
-                <th>{{ $article->sub_image_3 }}</th>
-                <th>{{ $article->sub_image_4 }}</th>
+                <td rowspan="2">{{ $article->id }}</th>
+                <td>{{ $article->user_id }}</th>
+                <td>{{ $article->category }}</th>
+                <td>{{ $article->title }}</th>
+                <td>{{ $article->image_text }}</th>
+                <td>{{ $article->link_url }}</th>
+                <td>{{ $article->link_text }}</th>
+                @if (isset($article->main_image))
+                <td class="text-center"><a href="{{ $article->main_image }}">Link</a></td>
+                @endif
+                @if (isset($article->sub_image_1))
+                <td class="text-center">○</td>
+                @else
+                <td class="text-center text-danger">NULL</td>
+                @endif
+                @if (isset($article->sub_image_2))
+                <td class="text-center">○</td>
+                @else
+                <td class="text-center text-danger">NULL</td>
+                @endif
+                @if (isset($article->sub_image_3))
+                <td class="text-center">○</td>
+                @else
+                <td class="text-center text-danger">NULL</td>
+                @endif
+                @if (isset($article->sub_image_4))
+                <td class="text-center">○</td>
+                @else
+                <td class="text-center text-danger">NULL</td>
+                @endif
                 <td>{{ $article->created_at->format('Y/m/d/ H:i') }}</td>
                 <td class="text-center"><a href="">
                     <form action="{{ action('ArticleController@delete', ['id' => $article->id]) }}" method="POST">
@@ -87,8 +103,12 @@
                     </form> 
                 </td>
             </tr>
+            <tr>
+                <th colspan="13">{{ $article->body }}</th>
+            </tr>
             @endforeach
         </tbody>
+        
     </table>
     
     <section class="mb-5">

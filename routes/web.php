@@ -25,7 +25,8 @@ Route::get('/contact', 'ContactController@add');
 Route::get('/test/contact', 'ContactController@test');
 Route::get('/contact', 'ContactController@index');
 Route::post('/test/content', 'ContactController@create');
-Route::post('contact', 'ContactController@delete');
+Route::post('/contact', 'ContactController@delete');
+Route::get('/inquiry', 'ContactController@show');
 
 
 

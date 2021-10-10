@@ -39,25 +39,29 @@
 
 
     <!-- データテーブル -->
-    <table class="table table-bordered table-hover mt-5">
-        <thead>
+    <table class="table table-bordered table-hover mt-5 col-10 offset-1">
+        <thead class="bg-primary">
             <tr class="text-center">
-                <th>No.</th>
-                <th>User_id</th>
-                <th>Title</th>
-                <th>View_image</th>
-                <th>Date</th>
-                <th>Delete</th>
+                <th style="width: 5%">No.</th>
+                <th style="width: 15%">User Name</th>
+                <th style="width: 25%">Title</th>
+                <th style="width: 35%">View image</th>
+                <th style="width: 15%">Date</th>
+                <th style="width: 5%">Delete</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($views as $view)
             <tr>
-                <th scope="row">{{ $view->id }}</th>
-                <td>{{ $view->user_id }}</td>
-                <td>{{ $view->title }}</td>
-                <td>{{ $view->view_image }}</td>
-                <td>{{ $view->created_at->format('Y/m/d H:i') }}</td>
+                <th scope="row" class="text-center">{{ $view->id }}</th>
+                <td class="text-center">{{ $view->user_id }}</td>
+                @if ( isset($view->title))
+                <td class="text-center">{{ $view->title }}</td>
+                @else
+                <td class="text-center text-danger">No Title</td>
+                @endif
+                <td><a href="{{ $view->view_image }}">{{ $view->view_image }}</a></td>
+                <td class="text-center">{{ $view->created_at->format('Y/m/d H:i') }}</td>
                 <td class="text-center">
                     <form action="{{ action('ViewController@delete', ['id' => $view->id]) }}" method="POST">
                         {{ csrf_field() }}

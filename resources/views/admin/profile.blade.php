@@ -39,27 +39,32 @@
 
 
     <!-- データテーブル -->
-    <table class="table table-bordered table-hover mt-5">
-        <thead>
+    <table class="table table-bordered table-hover mt-5 col-10 offset-1">
+        <thead class="bg-primary">
             <tr class="text-center">
-                <th>No.</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Pasword</th>
-                <th>profile_image</th>
-                <th>Date</th>
-                <th>Delete</th>
+                <th style="width: 5%">No.</th>
+                <th style="width: 20%">Name</th>
+                <th style="width: 25%">Email</th>
+                <th style="width: 20%">Pasword</th>
+                <th style="width: 10%">profile_image</th>
+                <th style="width: 15%">Date</th>
+                <th style="width: 5%">Delete</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($users as $user)
             <tr>
-                <th scope="row">{{ $user->id }}</th>
+                <th scope="row" class="text-center">{{ $user->id }}</th>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->password }}</td>
-                <td>{{ $user->profile_image }}</td>
-                <td>{{ $user->created_at->format('Y/m/d/ H:i') }}</td>
+                @if (isset($user->profile_image))
+                <td class="text-center">⚪︎</td>
+                @else
+                <td class="text-center text-danger">No Image</td>
+                @endif
+                </td>
+                <td class="text-center">{{ $user->created_at->format('Y/m/d/ H:i') }}</td>
                 <td class="text-center">
                     <form action="{{ action('UserController@delete', ['id' => $user->id]) }}" method="POST">
                         {{ csrf_field() }}

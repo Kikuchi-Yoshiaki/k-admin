@@ -38,31 +38,31 @@
     </div>
 
     <!-- データテーブル -->
-    <table class="table table-bordered table-hover mt-5">
-        <thead>
+    <table class="table table-bordered table-hover mt-5 col-10 offset-1">
+        <thead class="bg-primary">
             <tr class="text-center">
-                <th>No.</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Title</th>
-                <th>Body</th>
-                <th>Date</th>
-                <th>More</th>
-                <th>Delete</th>
+                <th style="width: 3%">No.</th>
+                <th style="width: 10%">Name</th>
+                <th style="width: 15%">Email</th>
+                <th style="width: 12%">Title</th>
+                <th style="width: 35%">Body</th>
+                <th style="width: 15%">Date</th>
+                <th style="width: 5%">More</th>
+                <th style="width: 5%">Delete</th>
             </tr>
         </thead>
         <tbody>
             
                 @foreach ($contacts as $contact)
                 <tr>
-                    <th scope="row">{{ $contact->id }}</th>
-                    <td>{{ $contact->name }}</td>
-                    <td>{{ $contact->email }}</td>
-                    <td>{{ $contact->title }}</td>
-                    <td>{{ $contact->body }}</td>
-                    <td>{{ $contact->created_at->format('Y/m/d H:i') }}</td>
+                    <th scope="row" class="text-center">{{ $contact->id }}</th>
+                    <td>{{ Str::limit($contact->name, 20) }}</td>
+                    <td>{{ Str::limit($contact->email, 20) }}</td>
+                    <td>{{ Str::limit($contact->title, 30) }}</td>
+                    <td>{{ Str::limit($contact->body, 100) }}</td>
+                    <td class="text-center">{{ $contact->created_at->format('Y/m/d H:i') }}</td>
                     <td class="text-center">
-                        <a href=""></a>
+                         <a href="/inquiry/?id={{ $contact->id }}"><input type="submit" value=詳細></a>
                     </td>
                     <td class="text-center">
                         <form action="{{ action('ContactController@delete', ['id' => $contact->id]) }}" method="POST">
