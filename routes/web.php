@@ -18,11 +18,12 @@ Route::get('/', function () {
 
 Route::get('/', 'AdminController@add');
 Route::get('/master', 'AdminController@master');
-Route::get('/inquiry', 'AdminController@inquiry');
+
 
 
 Route::get('/contact', 'ContactController@add');
 Route::get('/test/contact', 'ContactController@test');
+Route::get('/inquiry', 'ContactController@inquiry');
 Route::get('/contact', 'ContactController@index');
 Route::post('/test/content', 'ContactController@create');
 Route::post('/contact', 'ContactController@delete');

@@ -8,18 +8,21 @@ use App\User;
 
 class UserController extends Controller
 {
+    
+    //ユーザー一覧画面に移動
     public function add()
     {
         return view('admin.profile');
     }
     
-    
+    //新規登録テスト画面に移動
     public function test()
     {
         return view('admin.test.profileTest');
     }
     
     
+    //ユーザー情報一覧を表示
     public function index(Request $request)
     {
         $users = User::all();
@@ -27,6 +30,17 @@ class UserController extends Controller
     }
     
     
+    //ユーザー情報を削除する
+    public function delete(Request $request)
+    {
+        $delete = User::find($request->id);
+        $delete->delete();
+        
+        return redirect('/profile');
+    }
+    
+    
+    //新規ユーザー登録をテスト送信する
     public function create(Request $request)
     {
         $this->validate($request, User::$rules);
@@ -50,12 +64,4 @@ class UserController extends Controller
         return redirect('/profile');
     }
     
-    
-    public function delete(Request $request)
-    {
-        $delete = User::find($request->id);
-        $delete->delete();
-        
-        return redirect('/profile');
-    }
 }

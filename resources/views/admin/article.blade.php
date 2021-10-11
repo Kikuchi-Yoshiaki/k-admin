@@ -44,11 +44,11 @@
             <tr>
                 <th rowspan="2" style="width: 3%">No.</th>
                 <th style="width: 10%">User Name</th>
-                <th style="width: 8%">Category</th>
+                <th style="width: 10%">Category</th>
                 <th style="width: 15%">Title</th>
                 <th style="width: 14%">Image_Text</th>
-                <th style="width: 10%">Link URL</th>
-                <th style="width: 10%">link Text</th>
+                <th style="width: 5%">Link URL</th>
+                <th style="width: 13%">link Text</th>
                 <th style="width: 3%">Main Img</th>
                 <th style="width: 3%">Sub1</th>
                 <th style="width: 3%">Sub2</th>
@@ -65,15 +65,27 @@
         <tbody>
             @foreach ($articles as $article)
             <tr>
-                <td rowspan="2">{{ $article->id }}</th>
-                <td>{{ $article->user_id }}</th>
-                <td>{{ $article->category }}</th>
-                <td>{{ $article->title }}</th>
-                <td>{{ $article->image_text }}</th>
-                <td>{{ $article->link_url }}</th>
-                <td>{{ $article->link_text }}</th>
+                <td rowspan="2" class="text-center">{{ $article->id }}</th>
+                <td class="text-center">{{ $article->user_id }}</th>
+                <td class="text-center">{{ $article->category }}</th>
+                <td>{{ Str::limit($article->title, 30) }}</th>
+                @if (isset($article->image_text))
+                <td>{{ Str::limit($article->image_text, 30) }}</th>
+                @else
+                <td class="text-center text-danger">NULL</td>
+                @endif
+                @if (isset($article->link_url))
+                <td class="text-center"><a href="{{ $article->link_url }}" target='_blank'>Link</a></th>
+                @else
+                <td class="text-center text-danger">NULL</td>
+                @endif
+                @if (isset($article->link_text))
+                <td>{{ Str::limit($article->link_text, 30) }}</th>
+                @else
+                <td class="text-center text-danger">NULL</td>
+                @endif
                 @if (isset($article->main_image))
-                <td class="text-center"><a href="{{ $article->main_image }}">Link</a></td>
+                <td class="text-center"><a href="{{ $article->main_image }}">Image</a></td>
                 @endif
                 @if (isset($article->sub_image_1))
                 <td class="text-center">○</td>
@@ -95,7 +107,7 @@
                 @else
                 <td class="text-center text-danger">NULL</td>
                 @endif
-                <td>{{ $article->created_at->format('Y/m/d/ H:i') }}</td>
+                <td class="text-center article-data">{{ $article->created_at->format('y/m/d/ H:i') }}</td>
                 <td class="text-center"><a href="">
                     <form action="{{ action('ArticleController@delete', ['id' => $article->id]) }}" method="POST">
                         {{ csrf_field() }}
@@ -104,7 +116,7 @@
                 </td>
             </tr>
             <tr>
-                <th colspan="13">{{ $article->body }}</th>
+                <th colspan="13">{{ Str::limit($article->body, 200) }}</th>
             </tr>
             @endforeach
         </tbody>

@@ -8,18 +8,21 @@ use App\Article;
 
 class ArticleController extends Controller
 {
+    
+    //記事一覧画面に移動
     public function add()
     {
         return view('admin.article');
     }
     
-    
+    //記事テスト画面に移動
     public function test()
     {
         return view('admin.test.articleTest');
     }
     
     
+    //投稿された記事一覧を表示
     public function index(Request $request)
     {
         $articles = Article::all();
@@ -27,6 +30,17 @@ class ArticleController extends Controller
     }
     
     
+    //記事を削除する
+    public function delete(Request $request)
+    {
+        $delete = Article::find($request->id);
+        $delete->delete();
+        
+        return redirect('/article');
+    }
+    
+    
+    //記事をテスト送信する
     public function create(Request $request)
     {
         $this->validate($request, Article::$rules);
@@ -74,15 +88,6 @@ class ArticleController extends Controller
         $articles->save();
         
         return redirect('article');
-    }
-    
-    
-    public function delete(Request $request)
-    {
-        $delete = Article::find($request->id);
-        $delete->delete();
-        
-        return redirect('/article');
     }
     
     

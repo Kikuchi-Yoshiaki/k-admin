@@ -8,18 +8,27 @@ use App\Contact;
 
 class ContactController extends Controller
 {
+    
+    //問い合わせ一覧画面に移動
     public function add()
     {
         return view('admin.contact');
     }
 
-
+    //問い合わせ一覧画面に移動
     public function test()
     {
         return view('admin.test.contactTest');
     }
 
+    //問い合わせ詳細画面に移動
+    public function inquiry()
+    {
+        return view('admin.inquiry');
+    }
 
+
+    //問い合わせ一覧を表示
     public function index(Request $request)
     {
         $contacts = Contact::all();
@@ -27,7 +36,26 @@ class ContactController extends Controller
     }
 
     
-
+    //問い合わせの詳細を表示する
+    public function show(Request $request)
+    {
+        $show = Contact::find($request->id);
+        
+        return view('admin.inquiry', ['show' => $show]);
+    }
+    
+    
+    //記事を削除する
+    public function delete(Request $request)
+    {
+        $delete = Contact::find($request->id);
+        $delete->delete();
+        
+        return redirect('/contact');
+    }
+    
+    
+    //問い合わせをテスト送信する
     public function create(Request $request)
     {
         $this->validate($request, Contact::$rules);
@@ -43,27 +71,6 @@ class ContactController extends Controller
         return redirect('/contact');
     }
 
-
-    public function delete(Request $request)
-    {
-        $delete = Contact::find($request->id);
-        $delete->delete();
-        
-        return redirect('/contact');
-    }
-    
-    
-    
-    public function show(Request $request)
-    {
-        $show = Contact::find($request->id);
-        
-        return view('admin.inquiry', ['show' => $show]);
-    }
-    
-   
-    
-    
     
 
 }

@@ -17,9 +17,4 @@ class AdminController extends Controller
     }
 
 
-    public function inquiry()
-    {
-        return view('admin.inquiry');
-    }
-
 }
