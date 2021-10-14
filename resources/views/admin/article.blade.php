@@ -16,9 +16,9 @@
 
     <div class="d-flex justify-content-between">
         <section>
-            <a href="{{ url('/article') }}" class="link-btn">
-                <i class="far fa-newspaper"></i>
-                <span>Article List</span>
+            <a href="{{ url('/profile') }}" class="link-btn">
+                <i class="fas fa-users"></i>
+                <span>Profile List</span>
             </a>
         </section>
 
