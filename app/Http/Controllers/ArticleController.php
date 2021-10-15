@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Article;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -34,6 +35,16 @@ class ArticleController extends Controller
     public function delete(Request $request)
     {
         $delete = Article::find($request->id);
+        $delImage = $delete->main_image;
+        Storage::delete('public/article/'.$delImage);
+        $delSub1 = $delete->sub_image_1;
+        Storage::delete('public/article/'.$delSub1);
+        $delSub2 = $delete->sub_image_2;
+        Storage::delete('public/article/'.$delSub2);
+        $delSub3 = $delete->sub_image_3;
+        Storage::delete('public/article/'.$delSub3);
+        $delSub4 = $delete->sub_image_4;
+        Storage::delete('public/article/'.$delSub4);
         $delete->delete();
         
         return redirect('/article');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\View;
+use Illuminate\Support\Facades\Storage;
 
 class ViewController extends Controller
 {
@@ -35,6 +36,8 @@ class ViewController extends Controller
     public function delete(Request $request)
     {
         $delete = View::find($request->id);
+        $delImage = $delete->view_image;
+        Storage::delete('public/view/'.$delImage);
         $delete->delete();
         
         

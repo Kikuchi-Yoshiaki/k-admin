@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+//これを追記！
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -34,6 +36,8 @@ class UserController extends Controller
     public function delete(Request $request)
     {
         $delete = User::find($request->id);
+        $delImage = $delete->profile_image;
+        Storage::delete('public/user/'.$delImage);
         $delete->delete();
         
         return redirect('/profile');
@@ -49,7 +53,7 @@ class UserController extends Controller
         $form = $request->all();
         
         if (isset($form['profile_image'])) {
-            $path = $request->file('profile_image')->store('public/image');
+            $path = $request->file('profile_image')->store('public/user');
             $users->profile_image = basename($path);
         } else {
             $users->profile_image = null;
