@@ -38,6 +38,7 @@ class User extends Authenticatable
     ];
     
     //新規追加分
+    //protected $guarded = ['id', 'role'];
     protected $guarded = ['id'];
     
     public static $rules = [

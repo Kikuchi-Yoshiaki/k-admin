@@ -1,11 +1,16 @@
-@extends('layouts.app')
+@extends('admin/layout')
+
+@section('title', 'Message')
+
+@section('title', 'Message')
 
 @section('content')
-<div class="container">
+
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header text-dark">メッセージ</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,10 +19,12 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <p class="text-dark">このアカウントはログイン権限がありません</p>
+                    <p class="text-dark">右上からログアウトしてください</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @endsection
