@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 //これを追記！
+use App\Article;
+use App\View;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller

@@ -19,14 +19,33 @@
 
         <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/7807b4c945.js" crossorigin="anonymous"></script>
-    </head>
+    </head><!--//-->
 
     <body>
         <div id="app">
             <!-- ヘッダー -->
             <nav class="navbar navbar-expand-md top-bar">
-                <a href="#"><h2>MainTitle</h2></a>
+                <a href="/"><h2>MainTitle</h2></a>
                 <span class="page-title ml-5">@yield('page')</span>
+            
+            
+                @guest
+                <span></span>
+                @else
+                    <div class="admin-name">{{ Auth::user()->name }}</div>
+                        
+                    <div class="logout">
+                        <a class="logout-btn" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                @endguest
+            
             </nav>
 
             <main class="main-body" >

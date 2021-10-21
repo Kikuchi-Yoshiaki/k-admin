@@ -20,6 +20,7 @@ Route::get('/', 'AdminController@add');
 Route::post('/admin', 'AdminController@create');
 Route::get('/admin', 'AdminController@admin');
 Route::get('/master', 'AdminController@index');
+Route::post('/master', 'AdminController@delete');
 
 
 

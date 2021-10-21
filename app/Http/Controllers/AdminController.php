@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Admin;
 
 class AdminController extends Controller
@@ -35,4 +36,14 @@ class AdminController extends Controller
     public function admin() {
         return view('admin.test.adminPost');
     }
+    
+    public function delete(Request $request)
+    {
+        $delete = Admin::find($request->id);
+        $delete->delete();
+        
+        return redirect('/master');
+    }
+    
+    
 }

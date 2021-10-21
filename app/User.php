@@ -45,5 +45,4 @@ class User extends Authenticatable
         'email' => 'required',
         'password' => 'required',
         ];
-    
 }

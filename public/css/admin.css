@@ -25,6 +25,20 @@ footer {
   font-size: 24px;
 }
 
+.admin-name {
+  font-size: 1.2vw;
+  color: #000;
+  margin: 0 auto;
+}
+
+.logout {
+  font-size: 2vw;
+}
+.logout-btn:hover {
+  color: #FFF;
+}
+
+
 section {
   display: flex;
   justify-content: center;
@@ -73,3 +87,6 @@ table {
 }
 
 
+.button {
+  margin: 0 auto;
+}

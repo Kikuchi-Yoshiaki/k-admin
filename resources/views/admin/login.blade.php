@@ -6,31 +6,36 @@
 
 @section('content')
 
-    <form class="col-8 offset-2">
-        
-        <!-- エラーチェック -->
-        @if (count($errors) > 0)
-        <ul class="alert-danger" role="alert">
-            @foreach ($errors->all() as $e)
-            <li class="ml-3">{{ $e }}</li>
-            @endforeach
-        </ul>
-        @endif
-
+    <form method="POST" action="{{ route('login') }}" neme="login-form" class="col-8 offset-2">
+        @csrf
         <div class="mb-3 mt-5 col-6 offset-3">
-            <label for="account-name" class="form-label">Account Name</label>
-            <input type="text" class="form-control " id="account-name" aria-describedby="account-name">
+            <label for="email" class="form-label">E-Mail</label>
+            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
+        
+            <!-- アドレスエラーメッセージ -->
+            @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
 
         <div class="mb-3 mt-3 col-6 offset-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password">
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autofocus autocomplete="current-password">
+        
+            <!-- パスワードエラーメッセージ -->
+            @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
-
-        <div class="text-center">
-            <a href="{{ url('master') }}" type="submit" class="btn btn-primary my-5">Login</a>
-        </div>
-
+       
+        <div class="col-3 button mt-5">
+            <button type="submit" class="btn btn-block btn-primary form-button" name="login">Login</button>
+        </div> 
+        
     </form>
 
 @endsection
