@@ -13,8 +13,10 @@ class Article extends Model
         'body' => 'required',
         'main_image' => 'required',
         'category' => 'required',
-        ];
+    ];
 
-    
-    
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

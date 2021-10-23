@@ -11,5 +11,10 @@ class View extends Model
     public static $rules = [
         //'user_id' => 'required',
         'view_image' => 'required',
-        ];
+    ];
+     
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

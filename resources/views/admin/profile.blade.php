@@ -54,7 +54,11 @@
         <tbody>
             @foreach ($users as $user)
             <tr>
+                @if ($user->role === 'admin')
+                <th scope="row" class="text-center bg-danger">{{ $user->id }}</th>
+                @else
                 <th scope="row" class="text-center">{{ $user->id }}</th>
+                @endif
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->password }}</td>

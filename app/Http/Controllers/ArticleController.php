@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Article;
 use Illuminate\Support\Facades\Storage;
+use App\User;
 
 class ArticleController extends Controller
 {

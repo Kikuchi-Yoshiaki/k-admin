@@ -66,7 +66,7 @@
             @foreach ($articles as $article)
             <tr>
                 <td rowspan="2" class="text-center">{{ $article->id }}</th>
-                <td class="text-center">{{ $article->user_id }}</th>
+                <td class="text-center">{{ $article->user->name }}</th>
                 <td class="text-center">{{ $article->category }}</th>
                 <td>{{ Str::limit($article->title, 30) }}</th>
                 @if (isset($article->image_text))

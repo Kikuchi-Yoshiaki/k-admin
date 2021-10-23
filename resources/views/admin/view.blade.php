@@ -54,13 +54,13 @@
             @foreach ($views as $view)
             <tr>
                 <th scope="row" class="text-center">{{ $view->id }}</th>
-                <td class="text-center">{{ $view->user_id }}</td>
+                <td class="text-center">{{ $view->user->name }}</td>
                 @if ( isset($view->title))
                 <td class="text-center">{{ $view->title }}</td>
                 @else
                 <td class="text-center text-danger">No Title</td>
                 @endif
-                <td><a href="/storage/view/{{ $view->view_image }}">{{ $view->view_image }}</a></td>
+                <td>{{ $view->view_image }}</td>
                 <td class="text-center">{{ $view->created_at->format('Y/m/d H:i') }}</td>
                 <td class="text-center">
                     <form action="{{ action('ViewController@delete', ['id' => $view->id]) }}" method="POST">
