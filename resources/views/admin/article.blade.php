@@ -120,8 +120,10 @@
             </tr>
             @endforeach
         </tbody>
-        
     </table>
+    
+    {{--ページネーション--}}
+    <div class="d-flex justify-content-center mt-5">{{ $articles->links() }}</div>
     
     <section class="mb-5">
         <a href="{{ url('/test/article') }}" class="link-btn">

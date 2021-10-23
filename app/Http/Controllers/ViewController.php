@@ -28,7 +28,8 @@ class ViewController extends Controller
     //投稿された画像一覧を表示
     public function index(Request $request)
     {
-        $views = View::all();
+        $views = View::orderBy('id', 'desc')
+            ->paginate(10);
         return view('admin.view', ['views' => $views]);
     }
     

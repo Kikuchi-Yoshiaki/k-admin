@@ -27,7 +27,8 @@ class ArticleController extends Controller
     //投稿された記事一覧を表示
     public function index(Request $request)
     {
-        $articles = Article::all();
+        $articles = Article::orderBy('id', 'desc')
+            ->paginate(3);
         return view('admin.article', ['articles' => $articles]);
     }
     

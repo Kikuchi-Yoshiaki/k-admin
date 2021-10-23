@@ -80,6 +80,10 @@
         </tbody>
     </table>
     
+    {{--ページネーション--}}
+    <div class="d-flex justify-content-center mt-5">{{ $users->links() }}</div>
+    
+    
     <section class="mb-5">
         <a href="{{ url('/test/profile') }}" class="link-btn">
             <span>Test</span>

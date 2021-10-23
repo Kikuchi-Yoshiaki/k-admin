@@ -75,6 +75,9 @@
 
         </tbody>
     </table>
+    
+    {{--ページネーション--}}
+    <div class="d-flex justify-content-center mt-5">{{ $contacts->links() }}</div>
 
     <section class="mb-5">
         <a href="{{ url('/test/contact') }}" class="link-btn">

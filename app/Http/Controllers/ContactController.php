@@ -31,7 +31,8 @@ class ContactController extends Controller
     //問い合わせ一覧を表示
     public function index(Request $request)
     {
-        $contacts = Contact::all();
+        $contacts = Contact::orderBy('id', 'desc')
+            ->paginate(5);
         return view('admin.contact', ['contacts' => $contacts]);
     }
 

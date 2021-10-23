@@ -72,6 +72,9 @@
             @endforeach
         </tbody>
     </table>
+    
+    {{--ページネーション--}}
+    <div class="d-flex justify-content-center mt-5">{{ $views->links() }}</div>
 
     <section class="mb-5">
         <a href="{{ url('/test/view') }}" class="link-btn">
