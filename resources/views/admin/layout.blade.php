@@ -17,6 +17,9 @@
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
 
+        <!-- favicon -->
+        <link rel="shortcut icon" type="image/x-icon"  href="/assets/a-favicon.png">
+
         <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/7807b4c945.js" crossorigin="anonymous"></script>
     </head><!--//-->
@@ -25,7 +28,7 @@
         <div id="app">
             <!-- ヘッダー -->
             <nav class="navbar navbar-expand-md top-bar">
-                <a href="/"><h2>MainTitle</h2></a>
+                <a href="/master"><h2>MainTitle</h2></a>
                 <span class="page-title ml-5">@yield('page')</span>
             
             

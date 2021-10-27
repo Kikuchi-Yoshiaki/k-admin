@@ -59,7 +59,11 @@
                 @else
                 <th scope="row" class="text-center">{{ $user->id }}</th>
                 @endif
+                @if ($user->role === 'admin')
+                <td class="bg-danger">{{ $user->name }}</td>
+                @else
                 <td>{{ $user->name }}</td>
+                @endif
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->password }}</td>
                 @if (isset($user->profile_image))
