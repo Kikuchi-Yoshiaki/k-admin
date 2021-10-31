@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+    //非ログイン対応
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
     
     //ユーザー一覧画面に移動
     public function add()
@@ -20,10 +25,10 @@ class UserController extends Controller
     }
     
     //新規登録テスト画面に移動
-    public function test()
-    {
-        return view('admin.test.profileTest');
-    }
+    // public function test()
+    // {
+    //     return view('admin.test.profileTest');
+    // }
     
     
     //ユーザー情報一覧を表示
@@ -48,27 +53,27 @@ class UserController extends Controller
     
     
     //新規ユーザー登録をテスト送信する
-    public function create(Request $request)
-    {
-        $this->validate($request, User::$rules);
+    // public function create(Request $request)
+    // {
+    //     $this->validate($request, User::$rules);
         
-        $users = new User;
-        $form = $request->all();
+    //     $users = new User;
+    //     $form = $request->all();
         
-        if (isset($form['profile_image'])) {
-            $path = $request->file('profile_image')->store('public/user');
-            $users->profile_image = basename($path);
-        } else {
-            $users->profile_image = null;
-        }
+    //     if (isset($form['profile_image'])) {
+    //         $path = $request->file('profile_image')->store('public/user');
+    //         $users->profile_image = basename($path);
+    //     } else {
+    //         $users->profile_image = null;
+    //     }
         
-        unset($form['_token']);
-        unset($form['profile_image']);
+    //     unset($form['_token']);
+    //     unset($form['profile_image']);
         
-        $users->fill($form);
-        $users->save();
+    //     $users->fill($form);
+    //     $users->save();
         
-        return redirect('/profile');
-    }
+    //     return redirect('/profile');
+    // }
     
 }

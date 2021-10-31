@@ -8,6 +8,12 @@ use App\Contact;
 
 class ContactController extends Controller
 {
+
+    //非ログイン対応
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
     
     //問い合わせ一覧画面に移動
     public function add()
@@ -57,20 +63,20 @@ class ContactController extends Controller
     
     
     //問い合わせをテスト送信する
-    public function create(Request $request)
-    {
-        $this->validate($request, Contact::$rules);
+    // public function create(Request $request)
+    // {
+    //     $this->validate($request, Contact::$rules);
         
-        $contacts = new Contact;
-        $form = $request->all();
+    //     $contacts = new Contact;
+    //     $form = $request->all();
         
-        unset($form['_token']);
+    //     unset($form['_token']);
         
-        $contacts->fill($form);
-        $contacts->save();
+    //     $contacts->fill($form);
+    //     $contacts->save();
 
-        return redirect('/contact');
-    }
+    //     return redirect('/contact');
+    // }
 
     
 

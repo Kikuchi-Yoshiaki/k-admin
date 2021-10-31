@@ -10,6 +10,11 @@ use App\User;
 
 class ArticleController extends Controller
 {
+    //非ログイン対応
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
     
     //記事一覧画面に移動
     public function add()
@@ -18,17 +23,17 @@ class ArticleController extends Controller
     }
     
     //記事テスト画面に移動
-    public function test()
-    {
-        return view('admin.test.articleTest');
-    }
+    // public function test()
+    // {
+    //     return view('admin.test.articleTest');
+    // }
     
     
     //投稿された記事一覧を表示
     public function index(Request $request)
     {
         $articles = Article::orderBy('id', 'desc')
-            ->paginate(3);
+            ->paginate(5);
         return view('admin.article', ['articles' => $articles]);
     }
     
@@ -54,54 +59,54 @@ class ArticleController extends Controller
     
     
     //記事をテスト送信する
-    public function create(Request $request)
-    {
-        $this->validate($request, Article::$rules);
+    // public function create(Request $request)
+    // {
+    //     $this->validate($request, Article::$rules);
         
-        $articles = new Article;
-        $form = $request->all();
+    //     $articles = new Article;
+    //     $form = $request->all();
         
         
-        if (isset($form['sub_image_1'])) {
-            $path1 = $request->file('sub_image_1')->store('public/article');
-            $articles->sub_image_1 = basename($path1);
-        } else {
-            $articles->sub_image_1 = null;
-        }
-        if (isset($form['sub_image_2'])) {
-            $path2 = $request->file('sub_image_2')->store('public/article');
-            $articles->sub_image_2 = basename($path2);
-        } else {
-            $articles->sub_image_2 = null;
-        }
-        if (isset($form['sub_image_3'])) {  
-            $path3 = $request->file('sub_image_3')->store('public/article');
-            $articles->sub_image_3 = basename($path3);
-        } else {
-            $articles->sub_image_3 = null;
-        }
-        if (isset($form['sub_image_4'])) {
-            $path4 = $request->file('sub_image_4')->store('public/article');
-            $articles->sub_image_4 = basename($path4);
-        } else {
-            $articles->sub_image_4 = null;
-        }
+    //     if (isset($form['sub_image_1'])) {
+    //         $path1 = $request->file('sub_image_1')->store('public/article');
+    //         $articles->sub_image_1 = basename($path1);
+    //     } else {
+    //         $articles->sub_image_1 = null;
+    //     }
+    //     if (isset($form['sub_image_2'])) {
+    //         $path2 = $request->file('sub_image_2')->store('public/article');
+    //         $articles->sub_image_2 = basename($path2);
+    //     } else {
+    //         $articles->sub_image_2 = null;
+    //     }
+    //     if (isset($form['sub_image_3'])) {  
+    //         $path3 = $request->file('sub_image_3')->store('public/article');
+    //         $articles->sub_image_3 = basename($path3);
+    //     } else {
+    //         $articles->sub_image_3 = null;
+    //     }
+    //     if (isset($form['sub_image_4'])) {
+    //         $path4 = $request->file('sub_image_4')->store('public/article');
+    //         $articles->sub_image_4 = basename($path4);
+    //     } else {
+    //         $articles->sub_image_4 = null;
+    //     }
         
-        $path = $request->file('main_image')->store('public/article');
-        $articles->main_image = basename($path);
+    //     $path = $request->file('main_image')->store('public/article');
+    //     $articles->main_image = basename($path);
         
-        unset($form['_token']);
-        unset($form['main_image']);
-        unset($form['sub_image_1']);
-        unset($form['sub_image_2']);
-        unset($form['sub_image_3']);
-        unset($form['sub_image_4']);
+    //     unset($form['_token']);
+    //     unset($form['main_image']);
+    //     unset($form['sub_image_1']);
+    //     unset($form['sub_image_2']);
+    //     unset($form['sub_image_3']);
+    //     unset($form['sub_image_4']);
         
-        $articles->fill($form);
-        $articles->save();
+    //     $articles->fill($form);
+    //     $articles->save();
         
-        return redirect('article');
-    }
+    //     return redirect('article');
+    // }
     
     
 }
