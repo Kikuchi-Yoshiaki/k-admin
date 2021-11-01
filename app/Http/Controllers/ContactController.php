@@ -22,10 +22,10 @@ class ContactController extends Controller
     }
 
     //問い合わせ一覧画面に移動
-    public function test()
-    {
-        return view('admin.test.contactTest');
-    }
+    // public function test()
+    // {
+    //     return view('admin.test.contactTest');
+    // }
 
     //問い合わせ詳細画面に移動
     public function inquiry()
@@ -38,7 +38,7 @@ class ContactController extends Controller
     public function index(Request $request)
     {
         $contacts = Contact::orderBy('id', 'desc')
-            ->paginate(5);
+            ->paginate(10);
         return view('admin.contact', ['contacts' => $contacts]);
     }
 

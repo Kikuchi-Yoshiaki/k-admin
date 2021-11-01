@@ -74,12 +74,6 @@
     </table>
     
     {{--ページネーション--}}
-    <div class="d-flex justify-content-center mt-5">{{ $views->links() }}</div>
-
-    <section class="mb-5">
-        <a href="{{ url('/test/view') }}" class="link-btn">
-            <span>Test</span>
-        </a>
-    </section>
+    <div class="d-flex justify-content-center my-5">{{ $views->links() }}</div>
 
 @endsection

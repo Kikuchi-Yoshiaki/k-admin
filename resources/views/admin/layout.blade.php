@@ -28,7 +28,7 @@
         <div id="app">
             <!-- ヘッダー -->
             <nav class="navbar navbar-expand-md top-bar">
-                <a href="/master"><h2>MainTitle</h2></a>
+                <a href="/master"><h2>{{ config('app.name') }}</h2></a>
                 <span class="page-title ml-5">@yield('page')</span>
             
             

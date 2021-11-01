@@ -123,12 +123,6 @@
     </table>
     
     {{--ページネーション--}}
-    <div class="d-flex justify-content-center mt-5">{{ $articles->links() }}</div>
-    
-    <section class="mb-5">
-        <a href="{{ url('/test/article') }}" class="link-btn">
-            <span>Test</span>
-        </a>
-    </section>
+    <div class="d-flex justify-content-center my-5">{{ $articles->links() }}</div>
 
 @endsection

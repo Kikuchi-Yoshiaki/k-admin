@@ -34,7 +34,7 @@ class UserController extends Controller
     //ユーザー情報一覧を表示
     public function index(Request $request)
     {
-        $users = User::orderBy('id', 'asc')
+        $users = User::orderBy('id', 'desc')
             ->paginate(10);
         return view('admin.profile', ['users' => $users]);
     }

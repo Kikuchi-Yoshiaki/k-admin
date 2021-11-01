@@ -90,3 +90,14 @@ table {
 .button {
   margin: 0 auto;
 }
+
+
+.form-bar {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.login-btn {
+  max-width: 150px;
+  height: 100px;
+}

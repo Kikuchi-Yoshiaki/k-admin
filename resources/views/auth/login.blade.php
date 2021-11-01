@@ -8,7 +8,7 @@
 
     <form method="POST" action="{{ route('login') }}" neme="login-form" class="col-8 offset-2">
         @csrf
-        <div class="mb-3 mt-5 col-6 offset-3">
+        <div class="mb-3 mt-5 form-bar">
             <label for="email" class="form-label">E-Mail</label>
             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
         
@@ -20,7 +20,7 @@
             @enderror
         </div>
 
-        <div class="mb-3 mt-3 col-6 offset-3">
+        <div class="mb-3 mt-3 form-bar form-controll">
             <label for="password" class="form-label">Password</label>
             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autofocus autocomplete="current-password">
         
@@ -32,7 +32,7 @@
             @enderror
         </div>
        
-        <div class="col-3 button mt-5">
+        <div class="button mt-5 login-btn">
             <button type="submit" class="btn btn-block btn-primary form-button" name="login">Login</button>
         </div> 
         
