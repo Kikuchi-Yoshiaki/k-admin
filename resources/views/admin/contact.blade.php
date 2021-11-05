@@ -56,10 +56,10 @@
                 @foreach ($contacts as $contact)
                 <tr>
                     <th scope="row" class="text-center">{{ $contact->id }}</th>
-                    <td>{{ Str::limit($contact->name, 20) }}</td>
+                    <td>{{ Str::limit($contact->contact_name, 20) }}</td>
                     <td>{{ Str::limit($contact->email, 20) }}</td>
-                    <td>{{ Str::limit($contact->title, 30) }}</td>
-                    <td>{{ Str::limit($contact->body, 100) }}</td>
+                    <td>{{ Str::limit($contact->contact_title, 30) }}</td>
+                    <td>{{ Str::limit($contact->contact_body, 100) }}</td>
                     <td class="text-center">{{ $contact->created_at->format('Y/m/d H:i') }}</td>
                     <td class="text-center">
                          <a href="/inquiry/?id={{ $contact->id }}"><input type="submit" value=詳細></a>

@@ -33,7 +33,7 @@ class ArticleController extends Controller
     public function index(Request $request)
     {
         $articles = Article::orderBy('id', 'desc')
-            ->paginate(5);
+            ->paginate(3);
         return view('admin.article', ['articles' => $articles]);
     }
     

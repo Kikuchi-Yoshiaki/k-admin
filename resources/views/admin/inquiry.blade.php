@@ -28,7 +28,7 @@
     <div class="row mt-5">
         <div class="form-group col-5 offset-1">
             <label for="contact-name">Contact Name</label>
-            <div class="form-control" id="contact-name">{{ $show->name }}</div>
+            <div class="form-control" id="contact-name">{{ $show->contact_name }}</div>
         </div>
 
         <div class="form-group col-5">
@@ -38,7 +38,7 @@
 
         <div class="form-group col-7 offset-1">
             <label for="contact-title">Title</label>
-            <div class="form-control" id="contact-title">{{ $show->title }}</div>
+            <div class="form-control" id="contact-title">{{ $show->contact_title }}</div>
         </div>
 
         <div class="form-group col-3">
@@ -48,7 +48,7 @@
 
         <div class="form-group col-10 offset-1 mb-5">
             <label for="date">Body</label>
-            <div class="form-control contact-body py-4" id="date">{{ $show->body }}</div>
+            <div class="form-control contact-body py-4" id="date">{{ $show->contact_body }}</div>
         </div>
     </div>
     

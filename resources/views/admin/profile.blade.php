@@ -39,7 +39,7 @@
 
 
     <!-- データテーブル -->
-    <table class="table table-bordered table-hover mt-5 col-10 offset-1">
+    <table class="table table-bordered table-hover mt-5">
         <thead class="bg-primary">
             <tr class="text-center">
                 <th style="width: 5%">No.</th>

@@ -34,7 +34,7 @@ class ViewController extends Controller
     public function index(Request $request)
     {
         $views = View::orderBy('id', 'desc')
-            ->paginate(10);
+            ->paginate(5);
         return view('admin.view', ['views' => $views]);
     }
     

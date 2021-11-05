@@ -38,7 +38,7 @@ class ContactController extends Controller
     public function index(Request $request)
     {
         $contacts = Contact::orderBy('id', 'desc')
-            ->paginate(10);
+            ->paginate(5);
         return view('admin.contact', ['contacts' => $contacts]);
     }
 
@@ -46,6 +46,12 @@ class ContactController extends Controller
     //問い合わせの詳細を表示する
     public function show(Request $request)
     {
+        $inquiry = Contact::find($request->id);
+        if(!isset($inquiry))
+        {
+            return redirect('/login');
+        }
+        
         $show = Contact::find($request->id);
         
         return view('admin.inquiry', ['show' => $show]);
